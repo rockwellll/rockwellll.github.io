@@ -26,6 +26,8 @@
         fetch("https://dev.to/api/articles?username=rockwell")
             .then(res => res.json())
             .then(data => {
+                document.getElementById("loading").classList.add("hidden")
+
                 data.forEach(article => {
                     const article_template = document.getElementById("article_template").cloneNode(true)
 
@@ -63,7 +65,66 @@
         <h1 class="text-2xl text-white font-medium self-center my-8">Blog posts i've written</h1>
         <div class="px-20 grid grid-cols-4 gap-8 pt-4 pb-8" id="blogs">
         </div>
+
+        <div class="px-20 grid grid-cols-4 gap-8 pt-4 pb-8" id="loading">
+            <article style="max-width: 30rem;background-color: #1E293C;"
+                class="shadow-xl rounded-md p-2 space-y-8 flex flex-col justify-between animate-pulse">
+
+                <h1 class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </h1>
+
+                <main class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </main>
+
+                <footer class="w-full flex justify-end">
+                    <div class="w-14 h-2 rounded-xl bg-gray-300 animate-pulse"></div>
+                </footer>
+            </article>
+
+            <article style="max-width: 30rem;background-color: #1E293C;"
+                class="shadow-xl rounded-md p-2 space-y-8 flex flex-col justify-between animate-pulse">
+
+                <h1 class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </h1>
+
+                <main class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </main>
+
+                <footer class="w-full flex justify-end">
+                    <div class="w-14 h-2 rounded-xl bg-gray-300 animate-pulse"></div>
+                </footer>
+            </article>
+
+            <article style="max-width: 30rem;background-color: #1E293C;"
+                class="shadow-xl rounded-md p-2 space-y-8 flex flex-col justify-between animate-pulse">
+
+                <h1 class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </h1>
+
+                <main class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </main>
+
+                <footer class="w-full flex justify-end">
+                    <div class="w-14 h-2 rounded-xl bg-gray-300 animate-pulse"></div>
+                </footer>
+            </article>
+
+            <article style="max-width: 30rem;background-color: #1E293C;"
+                class="shadow-xl rounded-md p-2 space-y-8 flex flex-col justify-between animate-pulse">
+
+                <h1 class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </h1>
+
+                <main class="w-full h-4 rounded-xl bg-gray-300 animate-pulse text-white">
+                </main>
+
+                <footer class="w-full flex justify-end">
+                    <div class="w-14 h-2 rounded-xl bg-gray-300 animate-pulse"></div>
+                </footer>
+            </article>
+        </div>
     </section>
+
     <article hidden style="max-width: 30rem;background-color: #1E293C;" hidden id="article_template"
         class="hidden shadow-xl rounded-md p-2 flex flex-col justify-between">
         <h1 class="text-xl text__primary">
