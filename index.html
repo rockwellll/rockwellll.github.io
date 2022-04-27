@@ -9,17 +9,71 @@
 
     <style>
         .color__main {
-            background-color: #C8FCFD;
+            background-color: #0F172B;
         }
 
         .text__primary {
-            color: #52147D
+            color: #CCD5E2
+        }
+
+        .bg__secondary { 
+            background-color: #52147D;
         }
     </style>
+
+    <script defer>
+        fetch("https://dev.to/api/articles?username=rockwell")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            data.forEach(article => {
+            const article_template = document.getElementById("article_template").cloneNode(true)
+
+            article_template.querySelector("h1").innerText = article.title
+            article_template.querySelector("h2").innerText = article.tags
+            article_template.querySelector("p").innerText = article.description
+            article_template.querySelector("a").href = article.canonical_url
+            
+            article_template.removeAttribute("hidden")
+            article_template.classList.remove("hidden")
+
+            document.getElementById("blogs").appendChild(article_template)
+            });
+          
+        })
+
+    </script>
 </head>
-<body class="h-screen w-screen color__main flex flex-col justify-center items-center">
-    <h1 class="font-4xl font-medium text__primary">
-        Ahmed
-    </h1>
+<body class="h-screen overflow-y-visible w-screen color__main px-2">
+    <secion class="flex flex-col">
+        <h1 class="text-2xl text-white font-medium self-center my-8">About me</h1>
+        <p class="text__primary w-8/12 self-center">
+            orem ipsum dolor sit amet, consectetur adipiscing elit. Cras euismod nisl nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec nec maximus neque, nec tincidunt sapien. Phasellus molestie turpis leo, at faucibus sapien blandit nec. Aliquam id tellus ornare, sagittis ipsum at, viverra lectus. Pellentesque placerat risus id urna pulvinar, nec interdum sapien ullamcorper. Aenean fringilla consectetur risus sed rutrum. Aliquam ac vehicula erat. Fusce accumsan augue ut orci viverra, ullamcorper efficitur risus vehicula. Maecenas bibendum posuere magna lacinia efficitur. Morbi tincidunt massa nunc. Donec in mi eros.
+        </p>
+    </secion>
+
+    <secion class="flex flex-col">
+        <h1 class="text-2xl text-white font-medium self-center my-8">Blog posts i've written</h1>
+        <div class="px-20 grid grid-cols-4 gap-8 pt-4 pb-8" id="blogs">
+        </div>    
+    </secion>
+    <article hidden style="max-width: 30rem;background-color: #1E293C;" hidden id="article_template" class="hidden shadow-xl rounded-md p-2 flex flex-col justify-between">
+        <h1 class="text-xl text__primary">
+            Article header
+        </h1>
+
+        <main class="text__primary">
+            <p class="text-sm">
+            </p>
+
+            <h2 class="text-sm">
+                Article body
+            </h2>
+        </main>
+
+        <footer class="w-full flex justify-end">
+            <a href="" class="text-sm text-blue-500 hover:text-blue-700">view on dev.to</a>
+        </footer>
+    </article>
 </body>
 </html>
