@@ -25,21 +25,19 @@
         fetch("https://dev.to/api/articles?username=rockwell")
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            data.forEach(article => {
-            const article_template = document.getElementById("article_template").cloneNode(true)
+                data.forEach(article => {
+                const article_template = document.getElementById("article_template").cloneNode(true)
 
-            article_template.querySelector("h1").innerText = article.title
-            article_template.querySelector("h2").innerText = article.tags
-            article_template.querySelector("p").innerText = article.description
-            article_template.querySelector("a").href = article.canonical_url
-            
-            article_template.removeAttribute("hidden")
-            article_template.classList.remove("hidden")
+                article_template.querySelector("h1").innerText = article.title
+                article_template.querySelector("h2").innerText = article.tags
+                article_template.querySelector("p").innerText = article.description
+                article_template.querySelector("a").href = article.canonical_url
 
-            document.getElementById("blogs").appendChild(article_template)
+                article_template.removeAttribute("hidden")
+                article_template.classList.remove("hidden")
+
+                document.getElementById("blogs").appendChild(article_template)
             });
-          
         })
 
     </script>
